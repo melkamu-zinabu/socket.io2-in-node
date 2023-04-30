@@ -31,7 +31,8 @@ socket.on("join_room",(room)=>{
 })
 
 socket.on('sendmessage',(data)=>{
-    console.log(data);
+    // to emit the message to the specified room
+    socket.to(data.room).emit('receivemessage',data)
 })
 socket.on('disconnect',()=>{
     console.log('user disconnected',socket.id)

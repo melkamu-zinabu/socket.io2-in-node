@@ -19,6 +19,7 @@ function Chat({socket,username,room}) {
             }
             await socket.emit('sendmessage',messagedata)
             setmessagelist((list)=>[...list,messagedata])
+            setcurrentmessage('')
           
         }
 
@@ -60,7 +61,8 @@ function Chat({socket,username,room}) {
         </scrolltobottom>
       </div>
       <div className='chat-footer'>
-        <input type='text' placeholder='hey...'  onChange={(Event)=>{
+        <input type='text'
+         value={currentmessage} placeholder='hey...'  onChange={(Event)=>{
        setcurrentmessage(Event.target.value)
      }}
      // to send message when we press enter
