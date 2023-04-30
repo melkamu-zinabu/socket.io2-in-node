@@ -1,7 +1,8 @@
 
 import { useState } from 'react';
 import './App.css';
-import io from 'socket.io-client'
+import io, { Socket } from 'socket.io-client'
+import Chat from './Chat';
 const socket=io.connect('http://localhost:3001');
 function App() {
   const [username ,setusername]= useState('')
@@ -10,7 +11,7 @@ function App() {
   const joinroom=()=>{
     //do validation
     if(username !==''&& room !==""){
-
+      socket.emit('join_room',room)
     }
 
   }
@@ -27,7 +28,9 @@ function App() {
      <input type='text' placeholder='room id'  onChange={(Event)=>{
        setroom(Event.target.value)
      }}/>
-     <button>join a room</button>
+     <button onClick={joinroom}>join a room</button>
+    {/* to pass data to the chat component as props */}
+     <Chat socket={socket} username={username} room={room}/>
     </div>
   );
 }

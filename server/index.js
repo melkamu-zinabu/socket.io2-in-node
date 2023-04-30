@@ -24,6 +24,15 @@ const io=new Server(server,{
 //When a client connects to the Socket.IO server, Socket.IO creates a new Socket object to represent the connection between the client and the server.
 io.on('connection',(socket)=>{
 console.log(`user connected ${socket.id}`)
+
+socket.on("join_room",(room)=>{
+    socket.join(room);
+
+})
+
+socket.on('sendmessage',(data)=>{
+    console.log(data);
+})
 socket.on('disconnect',()=>{
     console.log('user disconnected',socket.id)
 })
