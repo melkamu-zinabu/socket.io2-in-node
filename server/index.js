@@ -23,7 +23,7 @@ const io=new Server(server,{
 //The socket argument in the io.on('connection', callback) function is automatically passed by Socket.IO when a new client connects to the server.
 //When a client connects to the Socket.IO server, Socket.IO creates a new Socket object to represent the connection between the client and the server.
 io.on('connection',(socket)=>{
-console.log(socket.id)
+console.log(`user connected ${socket.id}`)
 socket.on('disconnect',()=>{
     console.log('user disconnected',socket.id)
 })

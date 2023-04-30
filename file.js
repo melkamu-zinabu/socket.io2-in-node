@@ -39,3 +39,10 @@
 // This configuration allows cross-origin requests from https://example.com to your API server at https://api.example.com.
 
 // Note that you should only allow cross-origin requests from domains that you trust, and you should also make sure that your API server properly validates and sanitizes any data received from cross-origin requests to prevent security vulnerabilities.
+
+
+
+for front ens install client socket io
+The Socket.IO client is a JavaScript library that can be used in the front-end of a web application to establish a real-time, bidirectional communication channel with a Socket.IO server.
+
+The Socket.IO client library provides a simple and consistent API that can be used to connect to a Socket.IO server and exchange data with it using events. 
