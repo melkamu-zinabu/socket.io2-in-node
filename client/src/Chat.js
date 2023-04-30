@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
+import scrolltobottom from "react-scroll-to-bottom"
 // we need to the socket instance as props from app.js
 function Chat({socket,username,room}) {
     const [currentmessage, setcurrentmessage]=useState('')
@@ -37,6 +38,7 @@ function Chat({socket,username,room}) {
     <div className='chat-window'>
       <div className='chat-header'><p>live chat</p></div>
       <div className='chat-body'>
+        <scrolltobottom className={'message-container'}>
         {messagelist.map((messagecontent)=>{
             // When the server sends a response using Socket.IO, 
             // the response is sent back to all connected sockets 
@@ -55,6 +57,7 @@ function Chat({socket,username,room}) {
                 </div>
             </div>
         })}
+        </scrolltobottom>
       </div>
       <div className='chat-footer'>
         <input type='text' placeholder='hey...'  onChange={(Event)=>{
